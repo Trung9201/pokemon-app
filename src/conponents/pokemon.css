@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pokemon-list {
+    width: 150px;
+    background-color: antiquewhite;
+    color: rgb(99, 0, 124);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.pokemon-name {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+}

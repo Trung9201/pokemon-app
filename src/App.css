@@ -22,3 +22,18 @@ body {
   font-weight: 700;
   padding: 2rem 0;
 }
+
+.btn-load {
+  padding: 15px 35px;
+  color: #fff;
+  font-size: 18px;
+  background-color: rgb(99, 0, 124);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.btn-load:hover {
+  background-color: rgb(71, 4, 107);
+}

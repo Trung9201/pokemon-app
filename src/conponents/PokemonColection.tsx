@@ -14,7 +14,7 @@ const PokemonColection:React.FC<Props> = (props) => {
       <section className="container">
         {pokemons.map((e,index) => 
           (
-            <div key={index}>
+            <div>
               <PokemonList name={e.name} key={e.id} id={e.id} image={e.sprites.front_default} />
             </div>
           )
