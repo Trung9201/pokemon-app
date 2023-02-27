@@ -9,15 +9,24 @@ interface Pokemons {
   url: string
 }
 
+export interface Detail {
+  id: number,
+  isOpened: boolean,
+}
+
 
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [nextUrl, setNextUrl] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(true)
+  const [detail, setDetail] = useState<Detail>({
+    id: 0,
+    isOpened: false,
+  })
 
   useEffect(() => {
     const getPokemon = async() => {
-      const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit10?offset10")
+      const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=5?offset=5")
       setNextUrl(res.data.next)
       res.data.results.forEach(async(pokemons:Pokemons) => {
         const poke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemons.name}`)
@@ -44,8 +53,8 @@ function App() {
   return (
     <div className="App">
       <header className="pokemon-header">Pokemon</header>
-      <PokemonColection pokemons={pokemons}/>
-      <button className="btn-load" onClick={nextPage}>Load more</button>
+      <PokemonColection pokemons={pokemons} detail={detail} setDetail={setDetail} />
+      <button className="btn-load" onClick={nextPage}>{loading ? "Loading...": "Load more"}</button>
     </div>
   );
 }
